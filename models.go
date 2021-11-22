@@ -39,7 +39,9 @@ const (
 )
 
 var FrameStart []byte
+var Prefix []byte
 
 func init() {
 	FrameStart = []byte("FRAME")
+	Prefix = []byte("YUV4MPEG2 ")
 }

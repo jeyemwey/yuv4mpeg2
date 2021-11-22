@@ -24,7 +24,7 @@ func ParseHeader(reader io.Reader) (Yuv, error) {
 }
 
 func parseHeader(headerStr string) (yuv Yuv, err error) {
-	if !strings.HasPrefix(headerStr, "YUV4MPEG2 ") {
+	if !strings.HasPrefix(headerStr, string(Prefix)) {
 		return Yuv{}, errors.New("missing YUV4MPEG2 introduction")
 	}
 
