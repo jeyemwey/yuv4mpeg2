@@ -111,6 +111,18 @@ func Test_parseHeader(t *testing.T) {
 			ColorMode:      C420,
 			HeaderSize:     40,
 		}},
+
+		{name: "With a comment", headerStr: "YUV4MPEG2 W1920 H1080 F50:1 Ip C420 A4:3 Xsome_weird_comment", wantErr: false, wantYuv: Yuv{
+			Width:          1920,
+			Height:         1080,
+			FrameRateNum:   50,
+			FrameRateDen:   1,
+			AspectRatioNum: 4,
+			AspectRatioDen: 3,
+			InterlacedMode: Progressive,
+			ColorMode:      C420,
+			HeaderSize:     60,
+		}},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
